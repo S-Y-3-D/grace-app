@@ -130,3 +130,57 @@ background-color: white;
 border: 2px solid #ffffff;
 transform: matrix(-0.84, 0.55, -0.51, -0.86, 0, 0);
 }
+
+main{
+  font-family: 'Sofia Sans Condensed', sans-serif;
+
+}
+.main-section{
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.main-section > h3 {
+font-weight: 500;
+font-size: 32px;
+margin: 0;
+margin-top: 50px;
+}
+
+.main-section > input{
+margin: 0px;
+width: 744px;
+background: #FFFFFF;
+border: 1px solid #2B3467;
+border-radius: 16px;
+padding: 20px;
+font-size: 20px;
+}
+
+
+.suggestions{
+  display: flex;
+  flex-direction: column;
+  gap:28px;
+}
+.suggestions >h5{
+  margin:0;
+  margin-top:15px;
+  font-size: 18px;
+  align-self: flex-start;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+}
+.suggestions >button {
+
+  width: 503.85px;
+  height: 57.58px;
+  font-size: 20px;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+
+  background: #FFFFFF;
+  border: 1px solid #2B3467;
+  border-radius: 16px;
+  cursor: pointer;
+}
