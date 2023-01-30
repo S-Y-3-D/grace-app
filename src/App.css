@@ -12,6 +12,11 @@
   pointer-events: none;
 }
 
+html, html a {
+  -webkit-font-smoothing: antialiased !important;
+
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -81,4 +86,47 @@ height: 26px;
   color:white;
   line-height: 29px;
   cursor: pointer;
+}
+
+.arrow-up {
+  position: absolute;
+  left: -41px;
+top: 732.86px;
+  width: 0; 
+  height: 0; 
+  border-left: 300px solid transparent;
+  border-right: 300px solid transparent;
+  
+  border-bottom: 153px solid #2B3467;;
+}
+
+.line{
+  position: absolute;
+width: 200px;
+left: 255.02px;
+top: 770px;
+border-radius: 50%/400px 0 0 400px;
+border: 10px solid rgba(48, 52, 103, 50);
+transform: matrix(0.8, -0.6, 0.56, 0.83, 0, 0);
+}
+.mic{
+  position: absolute;
+width: 113.19px;
+height: 118.86px;
+left: 430px;
+top: 630px;
+border-radius: 50%;
+background: #2B3467;
+}
+.shade{
+position: absolute;
+width: 35.61px;
+height: 3.72px;
+left: 450.04px;
+top: 650.91px;
+
+border-radius: 50%;
+background-color: white;
+border: 2px solid #ffffff;
+transform: matrix(-0.84, 0.55, -0.51, -0.86, 0, 0);
 }
