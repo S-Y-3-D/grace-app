@@ -3,7 +3,7 @@ import React from "react"
 export default function Nav(){
     return(
         <nav className="navbar">
-            <h3 className="logo">grace.</h3>
+            <h3 className="logo">grace</h3><span className="dot">.</span>
             <ul className="routes">
                 <li className="active">home</li>
                 <li>blogs</li>

@@ -1,5 +1,5 @@
 import React from "react"
-
+import Speech from "./Speech.js"
 import axios from 'axios';
 
 export default function Main(){
@@ -7,6 +7,7 @@ export default function Main(){
     
     const [topic,setTopic]=React.useState("")
     const [suggestions,setSuggestions]=React.useState("Loading")
+    const [selectTopic,setSelectTopic]=React.useState(false)
     
    
 
@@ -40,26 +41,40 @@ React.useEffect( function(){
    
 },[])
 
-
+    function submitTopic(){
+        setSelectTopic(true)
+    }
     function handleInput(event)
     {
         setTopic(event.target.value)
     }
+
     
     return (<>
     <main>
-        <section className="main-section">
+       { selectTopic ? <Speech topic={topic}/>  
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       :<section className="main-section">
             <h3>What topic are you presenting on?</h3>
             <br/>
-            <input type="text" onChange={handleInput} value={topic} placeholder="Type your Topic"></input>
-            
+                <div className="input-container">
+                    <input className="input-field" type="text" onChange={handleInput} value={topic} placeholder="Type your Topic"></input>
+                    {topic.length > 0 && <button onClick={submitTopic} className="Go" type="submit">go</button>}</div>
             <div className="suggestions">
-            <h5>Here are some topics for you to select</h5>
-            <div><p className="opt">{suggestions.split('\n')[1] || suggestions}</p></div>
-            <div><p className="opt">{suggestions.split('\n')[0] || suggestions}</p></div>
-            <div><p className="opt">{suggestions.split('\n')[2] || suggestions}</p></div></div>
+                <h5>Here are some topics for you</h5>
+                <div><p className="opt">{suggestions.split('\n')[0] || suggestions}</p></div>
+                <div><p className="opt">{suggestions.split('\n')[1] || suggestions}</p></div>
+                <div><p className="opt">{suggestions.split('\n')[2] || suggestions}</p></div></div>
         </section>
-
+}
     </main>
     </>)
 }
