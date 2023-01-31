@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: Mograch;
-  src: url("../fonts/mograch.otf");
+  src: url("../fonts/mograch.ttf");
 }
 
 .App-logo {
@@ -62,6 +62,7 @@ font-size: 48px;
 line-height: 29px;
 color: #E83D4D;
 margin-left: 30px;
+cursor:default;
 }
 
 .routes{
@@ -167,20 +168,25 @@ font-size: 20px;
 }
 .suggestions >h5{
   margin:0;
-  margin-top:15px;
-  font-size: 18px;
-  align-self: flex-start;
-  font-family: 'Sofia Sans Condensed', sans-serif;
-}
-.suggestions >button {
-
-  width: 503.85px;
-  height: 57.58px;
+  margin-top:20px;
   font-size: 20px;
-  font-family: 'Sofia Sans Condensed', sans-serif;
+}
+.suggestions > div {
 
+  width: 400px;
+  justify-content: center;
+  height: 55px;
+  font-size: 20px;
   background: #FFFFFF;
   border: 1px solid #2B3467;
   border-radius: 16px;
   cursor: pointer;
+}
+
+.suggestions> div:hover{
+  background-color:#E83D4D;
+  color: #FFFFFF;
+}
+.opt{
+  
 }
