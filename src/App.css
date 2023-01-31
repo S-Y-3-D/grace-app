@@ -75,6 +75,12 @@ line-height: 29px;
 color:rgba(232, 61, 77, 1);
 cursor:default;
 }
+.small-dot{
+font-size: 30px;
+line-height: 29px;
+color:rgba(232, 61, 77, 1);
+cursor:default;
+}
 .routes{
   display: flex;
   gap:65px;
@@ -128,6 +134,7 @@ left: 430px;
 top: 630px;
 border-radius: 50%;
 background: rgba(38, 47, 70);
+z-index: 0;
 }
 .shade{
 position: absolute;
@@ -226,3 +233,59 @@ input[type="text"]{
 .Go:hover{
   background-color: #2B3467;
 }
+
+.speech-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap:200px;
+  border: 1px solid;
+
+}
+
+.intro > header{
+  font-size: 24px;
+line-height: 29px;
+}
+.options{
+  display: grid;
+  grid-template: auto auto / repeat(3,1fr);
+  gap:10px;
+}
+
+.options > button{
+  background: #000000;
+  border-radius: 16px;
+  color:white;
+  padding: 10px;
+  font-family: mograch;
+}
+.intro{
+  border: 1px solid;
+}
+.body{
+  border: 1px solid;
+}
+.closing{
+  border: 1px solid;
+}
+.body > header{
+  font-size: 24px;
+line-height: 29px;
+}
+.closing > header{
+  font-size: 24px;
+line-height: 29px;
+}
+.introduce{
+    height: 200px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    text-align: center;
+}
+
