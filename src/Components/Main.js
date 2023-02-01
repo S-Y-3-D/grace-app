@@ -66,8 +66,8 @@ React.useEffect( function(){
             <h3>What topic are you presenting on?</h3>
             <br/>
                 <div className="input-container">
-                    <input className="input-field" type="text" onChange={handleInput} value={topic} placeholder="Type your Topic"></input>
-                    {topic.length > 0 && <button onClick={submitTopic} className="Go" type="submit">go</button>}</div>
+                    <input className="input-topic" type="text" onChange={handleInput} value={topic} placeholder="Type your Topic"></input>
+                    {topic.length > 0 && <button onClick={submitTopic} className="Go">go</button>}</div>
             <div className="suggestions">
                 <h5>Here are some topics for you</h5>
                 <div><p className="opt">{suggestions.split('\n')[0] || suggestions}</p></div>
