@@ -15,6 +15,7 @@ import apiRequest from "../api.js"
 import Heading from './Heading.js'
 import Body from './Body.js'
 import IntroResult from './IntroResult.js'
+import Closing from './Closing.js'
 
 
 export default function Speech(props){
@@ -234,10 +235,7 @@ export default function Speech(props){
         hookText ? 
           isBody ?
            close ? <><StyleRoot><header className="present-heading" style={[styles.fade,styles.fadeColor]}>Body<span className="small-dot" style={styles.dotColor}>.<GiCheckMark style={{width:"10px"}}/></span></header></StyleRoot>
-           <div className="closing">
-           <header className="present-heading">Closing<span className="small-dot">.</span></header>
-               <div className="closing-body"> summary </div>
-       </div></>
+           <Closing/></>
 
            :setTimeout(() => {setTimePassedBody(true)}, 1000) && <><StyleRoot><header style={styles.fade} className="present-heading">Body<span className="small-dot">.</span></header></StyleRoot><Body isClose={isClosed} suggest={suggest} /></> :
         <>
