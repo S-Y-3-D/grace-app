@@ -6,12 +6,10 @@ export default function Heading(){
     const [timePassedCover,setTimePassedCover]=React.useState(false)  /*keeping track of time for animation*/
     const [timePassedParts,setTimePassedParts]=React.useState(false) //|
     const [timePassedSmall,setTimePassedSmall]=React.useState(false) //| 
-    const [timePassedIntro,setTimePassedIntro]=React.useState(false) // |
-
+   
     setTimeout(() => {setTimePassedCover(true)}, 1000);
     setTimeout(() => {  setTimePassedParts(true)}, 3000);
     setTimeout(() => { setTimePassedSmall(true)}, 5000);
-    setTimeout(() => {setTimePassedIntro(true)}, 7000);
 
     const styles = {
         fade: {
@@ -31,6 +29,6 @@ export default function Heading(){
     {timePassedCover && <StyleRoot><h3 style={styles.fade}>We got you covered</h3></StyleRoot>}
     {timePassedParts && <StyleRoot><h3 style={[styles.fade,styles.font]}>Presentations are divided into three parts</h3></StyleRoot>}
     {timePassedSmall && <StyleRoot><h3 style={[styles.fade,styles.color]}>We will cover each one by one</h3></StyleRoot>}
-    {timePassedIntro && <StyleRoot><header className="present-heading" style={styles.fade}>Intro<span className="small-dot">.</span></header></StyleRoot>}
+    
     </div>)
 }

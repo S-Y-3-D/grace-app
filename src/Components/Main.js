@@ -5,6 +5,7 @@ import axios from 'axios';
 export default function Main(){
 
     
+    
     const [topic,setTopic]=React.useState("")
     const [suggestions,setSuggestions]=React.useState("Loading")
     const [selectTopic,setSelectTopic]=React.useState(false)
@@ -12,6 +13,9 @@ export default function Main(){
    
 
 React.useEffect( function(){
+    
+
+    console.log("Hello")
 
     const options = {
         method: 'POST',
@@ -36,7 +40,7 @@ React.useEffect( function(){
             setSuggestions(response.data.generations[0].text)
         })
         .catch(function (error) {
-          //console.error(error);
+          console.error(error);
         });
    
 },[])

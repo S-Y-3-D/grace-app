@@ -48,8 +48,8 @@ export default function IntroResult(props){
           <div className="function-buttons">
               <button title="Send Love" className="heart" onClick={handleFavorite} style={heartColor}><AiFillHeart  /></button>
               <button title="Copy to clipboard" className="copy" onClick={()=>copyToClipBoard(props.text)} style={clipboardColor}><AiFillCopy /></button>
-              <button title="Edit" onClick={ ()=> props.changeText(edited) }><AiOutlineEdit/></button>
-              <button title="generate again!" className="restart" onClick={()=>props.reset()} ><MdRestartAlt/></button>
+              <button title="Edit" onClick={ ()=> props.changeText(edited,props.index) }><AiOutlineEdit/></button>
+              <button title="generate again!" className="restart" onClick={()=>props.reset(props.index)} ><MdRestartAlt/></button>
             </div>
           </div>
         </div>
