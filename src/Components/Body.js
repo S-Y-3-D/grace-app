@@ -13,12 +13,14 @@ import apiRequest from "../api.js"
 //Importing Custom Components
 import BodyResult from "./BodyResult.js"
 
+import Closing from './Closing.js'
+
 
 
 export default function Body(props){
     const [points, setPoints]= React.useState("") /*keeping state of topic main points  */
     const [pointArray,setPointArray]=React.useState([])
-    const [pointExpanded,setPointExpanded]=React.useState([])
+    const [pointExpanded,setPointExpanded]=React.useState([ ])
     const [body,setBody]=React.useState(false)
     const [loading,setLoading]=React.useState(false)
     const [timePassedInput,setTimePassedInput]=React.useState(false) //|
@@ -225,14 +227,17 @@ export default function Body(props){
 
       return(
         
-        body ? loading ? <><ReactLoading  className="loader" type="spinningBubbles" color="#E83D4D"/><p className="loading-text"> Hold on... </p></> :
+        body ? 
+        loading ? 
+        <><ReactLoading  className="loader" type="spinningBubbles" color="#E83D4D"/><p className="loading-text"> Hold on... </p></> 
+        :
         <div className="result-body-container">
             <div className="body-container">
             {pointsExpanded}
             </div>
-            <button onClick={()=>callClose()}  className="move"><AiOutlineArrowRight/></button>
+            <button onClick={()=>{callClose();props.handleElaborate(pointExpanded)}}  className="move"><AiOutlineArrowRight/></button>
         </div>
-        : 
+        :
         <>
         {timePassedFocus && <StyleRoot><h3 style={styles.fade} className="question">Provide your focus points on given topic?</h3>
         <h3 className="note" style={styles.fade}>btw! A good one has 3 focus points</h3></StyleRoot>}

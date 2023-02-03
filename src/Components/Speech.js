@@ -15,6 +15,7 @@ import apiRequest from "../api.js"
 import Heading from './Heading.js'
 import Body from './Body.js'
 import IntroResult from './IntroResult.js'
+import BodyResult from './BodyResult.js'
 import Closing from './Closing.js'
 
 
@@ -39,6 +40,9 @@ export default function Speech(props){
     const [timePassedIntro,setTimePassedIntro]=React.useState(false) // |
     const [timePassedBody,setTimePassedBody]=React.useState(false)
     const [close,setClose]=React.useState(false) 
+    const [elaborate,setElaborate]=React.useState([])
+    const [isEnd,setIsEnd]=React.useState(false)
+    const [summary,setSummary]=React.useState("")
 
     
 
@@ -213,14 +217,66 @@ export default function Speech(props){
     function isClosed(close){
       setClose(close)
     }
+
+    function pickElaborate(points){
+        setElaborate(points)
+    }
+
+    function pickSummary(summary){
+      setSummary(summary)
+    }
+    function endIt(end){
+      setIsEnd(prev=> !prev)
+    }
+
+    function handleRestartForPoint(index){
+      console.log(index)
+        setRestart(prev=>!prev)
+        setLoading(true)
+    }
+
+
+    function handleEditForPoint(edited,index){
+      setElaborate(prev => {
+          let updatedPoints=[]
+          for(let i=0;i<prev.length;i++){
+              if(i===index){
+                  updatedPoints.push(edited)
+              }
+              else{
+                  updatedPoints.push(prev[i])
+              }
+          }
+          return updatedPoints
+      } )
+}
+      function handleEditForSummary(edited){
+        setSummary(edited)
+      }
+      function handleRestartForSummary(){
+        setLoading(true)
+      }
       
       const options = hookOptions.map( (hook,index) => {
         return (<button key={index} onClick={handleHook} className="inactive-option-button" id={(index+1).toString()}>{hook}</button>)
       })
+
+      const pointsExpanded=elaborate.map((point,index) => {
+        return(<BodyResult text={point}  changeText={handleEditForPoint} index={index} reset={handleRestartForPoint} header={`Focus Point ${index+1}`}/>)
+ })
       return(
-        <section className="content-section">
+        isEnd ? 
+        <>
+         <IntroResult text={hookText}  changeText={handleEditForHook} reset={handleRestartForHook} restart={restart} header="Hook" />
+         <IntroResult text={introAi}  changeText={handleEditForIntro} reset={handleRestartForIntro} restart={restart} header="Introduce" />
+          {pointsExpanded}
+          <IntroResult text={summary}  changeText={handleEditForSummary} reset={handleRestartForSummary} header="Summary" />
+
+
+        </>  
+        :
+         <section className="content-section">
         <Heading />
-        
         {isBody ? <StyleRoot><header className="present-heading" style={[styles.fade,styles.fadeColor]}>Intro<span className="small-dot" style={styles.dotColor}>.<GiCheckMark style={{width:"10px"}}/></span></header></StyleRoot> 
          :timePassedIntro &&  <StyleRoot><header className="present-heading" style={styles.fade}>Intro<span className="small-dot">.</span></header></StyleRoot>}
         
@@ -235,9 +291,9 @@ export default function Speech(props){
         hookText ? 
           isBody ?
            close ? <><StyleRoot><header className="present-heading" style={[styles.fade,styles.fadeColor]}>Body<span className="small-dot" style={styles.dotColor}>.<GiCheckMark style={{width:"10px"}}/></span></header></StyleRoot>
-           <Closing/></>
+          <Closing elaborate={elaborate} hook={hookText} intro={introAi} handleEnd={endIt} handleSummary={pickSummary} /></>
 
-           :setTimeout(() => {setTimePassedBody(true)}, 1000) && <><StyleRoot><header style={styles.fade} className="present-heading">Body<span className="small-dot">.</span></header></StyleRoot><Body isClose={isClosed} suggest={suggest} /></> :
+           :setTimeout(() => {setTimePassedBody(true)}, 1000) && <><StyleRoot><header style={styles.fade} className="present-heading">Body<span className="small-dot">.</span></header></StyleRoot><Body isClose={isClosed} handleElaborate={pickElaborate} suggest={suggest} /></> :
         <>
         <div className="result-main-container">
           <div className="hook-container">

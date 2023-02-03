@@ -50,22 +50,107 @@ body {
   }
 }
 
+.main-headline{
+  text-align: center;
+  font-size: 132px;
+}
+.goodbye{
+  color:#E83D4D;
+}
+.notes-container{
+  position: relative;
+}
+.notes-container img{
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 20px;
+  left: -20px;
+  z-index: -1;
+  opacity: 0.6;
+}
+.pencil-container{
+  position: relative;
+}
+.pencil-container img{
+  
+  position: absolute;
+  align-self: center;
+  width: 350px;
+  height: 350px;
+  bottom: 100px;
+  right:0px;
+  z-index: -1;
+  
+  opacity: 0.6;
+
+}
+.sell{
+  height: 700px;
+  display: flex;
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: 16px 16px 0px 0px;
+}
+.mics{
+  content: url(Images/mic.png);
+  height:500px;
+  width:500px;
+}
+.mics img{
+  margin-left: 50px;
+  z-index: -1;
+}
+.sell-headline{
+color: white;
+  font-family: mograch;
+  font-size: 110px;
+  padding: 20px;
+  text-align: center;
+}
 
 .navbar{
   font-family: mograch;
-  background: rgba(38, 47, 70, 0.36);
+  background: #ece9e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #ece9e6, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #ece9e6, #ffffff);
   display: flex;
   align-items: center;
-  height: 60px;
+  height: 100px;
+  position: sticky;
+  top: 0;
 }
+.sell{
+  
+}
+
 
 .logo{
   font-weight: 300;
-font-size: 48px;
+font-size: 50px;
 line-height: 29px;
-color: #262F46;
+color: #000000;
 margin-left: 30px;
 cursor:default;
+}
+
+.arrow {
+  pointer-events: none;
+}
+ 
+.arrow__path {
+  stroke: #000;
+  fill: transparent;
+}
+ 
+.arrow__head line {
+  stroke: #000;
+  stroke-width: 1px;
 }
 
 .dot{
@@ -83,9 +168,10 @@ cursor:default;
 }
 .routes{
   display: flex;
-  gap:65px;
+  background: #000000;
+  border-radius: 4px;
+  align-self: center;
   margin-left:auto;
-  list-style-type: none;
   margin-right: 30px;
 }
 
@@ -96,14 +182,6 @@ cursor:default;
 height: 26px;
 }
 
-.routes > li{
-  text-align: center;
-  font-weight: 300;
-  font-size: 24px;
-  color:white;
-  line-height: 29px;
-  cursor: pointer;
-}
 
 .arrow-up {
   position: absolute;
@@ -152,6 +230,8 @@ transform: matrix(-0.84, 0.55, -0.51, -0.86, 0, 0);
 z-index: -1;
 }
 
+
+
 main{
   font-family: Mograch;
 
@@ -159,6 +239,7 @@ main{
 .main-section{
   margin: 0px;
   display: flex;
+  width:100%;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -167,48 +248,28 @@ main{
 
 .main-section > h3 {
 font-weight: 500;
-font-size: 32px;
+font-size: 70px;
 margin: 0;
 margin-top: 50px;
 }
 
+
 .suggestions{
   display: flex;
-  flex-direction: column;
-  gap:28px;
-}
-.suggestions >h5{
-  margin:0;
-  margin-top:20px;
-  font-size: 20px;
-}
-.suggestions > div {
-
-  font-size: 15px;
-  background: #FFFFFF;
-  border: 2px solid rgba(232, 61, 77, 1);
-  border-radius: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-  padding: 5px;
-}
-
-.suggestions> div:hover{
-  background-color:#E83D4D;
-  color: #FFFFFF;
+  gap:5px;
 }
 .input-container{
   display: flex;
-  position: relative;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 .input-topic{
-  flex:1;
   margin: 0px;
-  width: 744px;
-  background: #FFFFFF;
-  border: 2px solid rgba(232, 61, 77, 1);
+  width:80%;
+  border: 2px solid;
   border-radius: 20px;
-  padding: 10px;
+  padding: 20px;
   font-size: 20px;
 }
 input[type="text"]::-webkit-input-placeholder{
@@ -225,42 +286,24 @@ input[type="text"]::-webkit-input-placeholder{
   font-size: 20px;
 }
 
-.Go{
-  background-color: #E83D4D;
-  color:white;
-  font-family: mograch;
-  font-size: 15px;
-  position:absolute;
-  right: 0px;
-  top: 4px;
-  border:none;
-  height:35px;
-  width:35px;
-  border-radius:100%;
-  outline:none;
-  text-align:center;
-  padding:2px;
-  margin-right: 10px;
-  margin-top:2px;
-  transition: 0.3s;
-}
-.Go:hover{
-  background-color: #2B3467;
-}
-
 .add{
-  background-color: #E83D4D;
+  background: #8A2387;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F27121, #E94057, #8A2387);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F27121, #E94057, #8A2387);
   color:white;
-  height:35px;
-  width:35px;
+  height:45px;
+  width:45px;
   border-radius:100%;
   font-size: 1.4rem;
   border:none;
-  margin-left: 5px;;
+  margin-top:5px;
+  margin-left: 5px;
+  cursor: pointer;
 }
 
 .content-section{
   margin: 0px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -506,7 +549,7 @@ text-align: center;
 }
 
 .suggest-text{
-  padding:5px;
+  padding:12px;
   width: 300px;
   background: #8A2387;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #F27121, #E94057, #8A2387);  /* Chrome 10-25, Safari 5.1-6 */
@@ -520,6 +563,42 @@ text-align: center;
   transition: 0.3s;
   cursor: pointer;
 }
+.suggest-text2{
+  padding:15px;
+  width: 300px;
+  background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 16px;
+  border:none;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.suggest-text2:hover{
+  box-shadow: 5px 5px rgb(34, 34, 34);
+}
 .suggest-text:hover{
   box-shadow: 5px 5px black;
+}
+
+.footer-container{
+  position: sticky;
+  bottom: 0;
+  background: #52c234;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #061700, #52c234);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #061700, #52c234); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  margin-top:400px;
+  height:50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
 }
